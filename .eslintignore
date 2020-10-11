@@ -1,0 +1,12 @@
+build/
+node_modules/
+public/
+.eslintrc.js
+.gitignore
+gulpfile.js
+.prettierrc
+yarn.lock 
+yarn-error.log
+*.md
+*.html
+*.json
