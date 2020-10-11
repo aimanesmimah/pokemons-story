@@ -1,7 +1,6 @@
 build/
 node_modules/
 public/
-src/
 .eslintrc.js
 .gitignore
 gulpfile.js
