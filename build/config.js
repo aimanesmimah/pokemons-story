@@ -20,7 +20,7 @@ exports.dev= deepmerge(exports.common,{
         devtool: '#source-map',
         baseDir: path.join(__dirname,'..'),
         buildRoot: path.join(__dirname,'./'),
-        contentBase: path.join(__dirname,'..')
+        contentBase: path.join(__dirname,'./')
 })
 
 exports.build= deepmerge(exports.common,{
