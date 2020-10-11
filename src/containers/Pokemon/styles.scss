@@ -1,0 +1,270 @@
+@import '../../styles/theme.scss';
+@import '../../styles/mixins.scss';
+
+.pokemon--props{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Fira Sans', sans-serif;
+    &__main {
+        display: flex;
+        //width: 80%;
+        //margin: auto;
+        padding: 0 10em;
+
+        @media (max-width: 1300px) {
+            padding: 0 5em;
+        }
+
+        @media (max-width: 900px) {
+            flex-direction: column;
+            padding: 0 7em;
+        }
+
+        @media (max-width: 450px) {
+            flex-direction: column;
+            padding: 0 2em;
+        }
+
+        section:first-child {
+            display: flex;
+            flex-direction: column;
+            border-radius: 30em;
+            background: linear-gradient(to left,rgba(palette(yellow_1),.6) 10%,white);
+            box-shadow: -4px -4px 10px #eee;
+            margin-right: 10%;
+            width: 30em;
+            height: 30em;
+            @media (max-width: 1300px) {
+               width: 26em;
+               height: 26em;
+            }
+
+            @media (max-width: 450px) {
+                width: 20em;
+                height: 20em;
+                margin-right: 0;
+                margin-left: 10%;
+            }
+
+            @media (max-width: 380px) {
+                width: 19em;
+                height: 19em;
+                margin-left: 8%;
+            }
+
+            @media (max-width: 340px) {
+                width: 16em;
+                height: 16em;
+                margin-left: 5%;
+            }
+
+            figure {
+                position: relative;
+                display: flex;
+                justify-content: flex-end;
+                height: 57%;
+                width: 100%;
+
+                .front--logo {
+                    position: absolute;
+                    top: -6em;
+                    left: -8em;
+                    width: 23em;
+                    
+                    @media (max-width: 1300px){
+                        width: 20em;
+                        left: -5em;
+                    }
+
+                    @media (max-width: 900px){
+                        width: 15em;
+                        left: -4em;
+                        top: -5em;
+                    }
+
+                    @media (max-width: 450px) {
+                        width: 14em;
+                        height: 14em;
+                    }
+
+                    @media (max-width: 340px) {
+                        width: 10em;
+                        height: 10em;
+                        left: -3em;
+                        top: -4em
+                    }
+                }
+
+                .back--logo {
+                    position: absolute;
+                    top: 0;
+                    right: 25px;
+                    //left: 20em;
+
+                    @media (max-width: 450px) {
+                        right: 0;
+                    }
+
+                    @media (max-width: 340px) {
+                        right: -20px;
+                    }
+                }
+
+                figcaption {
+                    margin-top: 8em;
+                    margin-right: 6em;
+                    text-align: left;
+
+                    @media (max-width: 1300px) {
+                        margin-right: 3.5em;
+                    }
+
+                    @media (max-width: 1100px) {
+                        margin-right: 2.5em;
+                    }
+
+                    @media (max-width: 900px){
+                        margin-right: 5em;
+                    }
+
+                    @media (max-width: 450px){
+                        margin-right: 3em;
+                        margin-top: 5em;
+                    }
+
+                    @media (max-width: 340px){
+                        margin-right: 2.5em;
+                        margin-top: 5em;
+                    }
+
+                    div {
+                        @include underlinedTitle;
+                    }
+
+                    .specy--name {
+                        margin-top: 10px;
+                        font-weight: 600;
+                        text-transform: capitalize;
+
+                        @media (max-width: 450px) {
+                            font-size: 13px;    
+                        }
+
+                        span {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            .pokemon--details{
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                margin: 0 auto;
+                p{
+                    font-size: 16px;
+                    font-weight: 600;
+                    text-align: left;
+
+                    @media (max-width: 450px){
+                        font-size: 13px;
+                    }
+
+                    @media (max-width: 340px){
+                        font-size: 11px;
+                    }
+
+                    span {
+                        font-size: 45px;
+                        font-weight: 100;
+                        margin-left: -3px;
+
+                        @media (max-width: 450px){
+                            font-size: 38px;
+                        }
+
+                        @media (max-width: 340px){
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        section.pokemon--props__stats{
+            padding-top: 8em;
+            width: 46%;
+            
+            @media (max-width: 900px) {
+                width: 90%;    
+                padding-top: 3em;
+            }
+
+            @media (max-width: 450px) {
+               // border: 1px solid darkgrey;
+            }
+
+            .stats--title {
+                @include underlinedTitle;
+            }
+
+            .stats--content {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 20px;
+                &__item{
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 3em;
+                    margin-top: 7px;
+                    p{
+                        font-size: 16px;
+                        font-weight: 600;
+                        text-align: left;
+
+                        @media (max-width: 450px) {
+                            font-size: 14px;
+                        }
+                    }
+                    &--numbers{
+                        display: flex;
+                        p{
+                            margin-right: 10px;
+                            span {
+                                font-size: 30px;
+                                font-weight: 100;
+                                margin-left: -3px;
+
+                                @media (max-width: 450px) {
+                                    font-size: 27px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__details {
+        width: 80%;
+        margin: auto;
+
+        @media (max-width: 450px) {
+            width: 90%;
+        }
+
+    }
+}
+
+.error--message{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px;
+
+    @media (max-width: 450px) {
+        font-size: 15px;
+    }
+}

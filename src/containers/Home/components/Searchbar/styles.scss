@@ -1,0 +1,105 @@
+@import '../../../../styles/theme.scss';
+
+.searchbar--wrapper{
+    position: relative;
+    width: 70%;
+    margin: 0 auto 50px auto;
+    height: 60px;
+    box-shadow: 1px 1px 5px #ddd;
+    font-family: 'Fira Sans', sans-serif; 
+    display: flex;
+
+    @media (max-width:450px) {
+        width: 90%;
+    }
+
+    &__icon {
+        margin: 15px;
+    }
+
+    &__input {
+        border: inherit;
+        font-size: 25px;
+        width:100%;
+        height: 100%;
+        margin-top: 0;
+        padding-left: 10px;
+
+        @media (max-width: 450px) {
+            font-size: 20px;
+        }
+
+        @media (max-width: 340px) {
+            font-size: 17px;
+        }
+    }
+
+    &__filters {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 450px) {
+            flex-wrap: wrap;
+            overflow-y: auto;
+            min-width: 30%;
+        }
+
+        p {
+            background: palette(blue_1);
+            border-radius: 3px;
+            color: white;
+            width: max-content;
+            padding: 4px 8px;
+            box-shadow: 0px 0px 5px #aaa;
+            font-size: 13px;
+
+            @media (max-width: 450px) {
+                &:not(:first-child){
+                    margin-top: 5px;
+                }
+            }
+
+            &:not(:last-child){
+                margin-right: 4px;
+            }
+
+            span {
+                cursor: pointer;
+            }
+        }   
+    }
+
+    &__dropdown {
+        position: absolute;
+        left: 0;
+        top: 62px;
+        z-index: 99;
+        box-shadow: 1px 1px 5px #ddd;
+        background-color: white;
+        width: 100%;
+        border-radius: 2px;
+        max-height: 300px;
+        overflow-y: auto;
+        .dropdown--options{
+            &__item {
+                display: block;
+                &--button {
+                    height: 100%;
+                    width: 100%;
+                    text-align: left;
+                    padding: 15px 20px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    &:hover{
+                        transition: all .5s ease-in-out;
+                        background: linear-gradient(to right,rgba(palette(blue_1),.7),white);
+                        cursor: pointer;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../styles/mixins.scss';
+
+.pokemons--container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    .pokemons--listing{
+        @include listing;
+    }
+}

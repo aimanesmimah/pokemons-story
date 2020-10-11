@@ -1,0 +1,71 @@
+@import '../../styles/theme.scss';
+
+.pagination{
+    width: max-content;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+
+   @media (max-width: 1100px) {
+       font-size: 18px;
+   } 
+
+   @media (max-width: 900px) {
+       font-size: 16px;
+   }
+
+   @media (max-width: 900px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 340px)  {
+        font-size: 14px;
+    }
+
+    &--page {
+        display: inline-block;
+        color: palette(yellow_1);
+        margin: 0 10px;
+        border: 2px solid palette(yellow_1);
+        width: 35px;
+        cursor: pointer;
+
+        @media (max-width: 1100px) {
+            margin: 0 8px;
+        }
+
+        @media (max-width: 900px) {
+            width: 30px;
+        }
+
+        @media (max-width: 450px)  {
+            width: 25px;
+        }
+
+        @media (max-width: 340px)  {
+            margin: 0 8px;
+        }
+    }
+
+    &--forward {
+        color: palette(yellow_1);
+        margin: 0 15px;
+        border-bottom: 2px solid palette(yellow_1);
+        cursor: pointer;
+
+        @media (max-width: 340px)  {
+            margin: 0 5px;
+        }
+    }
+
+    &--active {
+        color: palette(blue_1);
+        border: 2px solid palette(blue_1);
+    }
+
+    &--break-me {
+        color: palette(yellow_1);
+    }
+
+}

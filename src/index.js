@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import { Provider } from 'react-redux';
-//import BaseContainer from './containers/BaseContainer';
-//import Sidebar from './Sidebar';
-//import Notes from './Notes';
-import createStore from './store';
-//import '@/styles/main.scss';
+import ReactDOM from 'react-dom';
+import { HelmetProvider } from 'react-helmet-async' ;
+import { Provider as StoreProvider } from 'react-redux' ;
+import { configureStore } from './store' ;
+import Router from './router';
+import './styles/reset.scss';
+//import './index.css';
 
 /**
  * @name ReactJsBoilerplate
@@ -16,19 +16,20 @@ import createStore from './store';
  * @env node >= 8.0.0 , npm >= 6.0.0
  */
 
-window.addEventListener('load', render);
 
-function render() {
-  const appContainer = document.getElementById('app');
-  if (!appContainer) {
-    throw new Error("Can't find container");
-  }
+window.addEventListener('load',renderApp)
 
-  const app = (
-      <Provider store={createStore()}>
-          <div>react boilerplate</div>
-      </Provider>
+function renderApp(){
+  const helmetContext= {}
+  const store= configureStore()
+  ReactDOM.render(
+    <React.StrictMode>
+      <HelmetProvider context={helmetContext} >
+              <StoreProvider store={store} >
+                  <Router />
+              </StoreProvider>
+        </HelmetProvider>
+    </React.StrictMode>,
+    document.getElementById('app')
   );
-
-  ReactDom.render(app, appContainer);
 }

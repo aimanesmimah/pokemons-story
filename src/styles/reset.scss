@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme|Fira+Sans|Ranchers|Indie+Flower');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    position: relative;
+    min-height:100%;
+    //font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    //font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    background-repeat: no-repeat;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline;
+}
+
+a {
+    &:hover {
+        text-decoration: non;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+
+input {
+    &:focus {
+        outline: none;
+    }
+}

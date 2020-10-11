@@ -1,0 +1,114 @@
+@mixin listing {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 20px auto;
+
+    @media (max-width: 450px) {
+        margin: 0 auto;
+    }
+
+    @media (max-width: 380px) {
+        width: 100%;
+    }
+}
+
+@mixin card {
+    position: relative;
+    width: 35%;
+    border-radius: 20px;
+    margin: 30px 40px;
+    text-align: left;
+    padding: 20px 70px;
+    background: linear-gradient(to left,rgba(palette(yellow_1),.6) 10%,white);
+    box-shadow: -4px -4px 10px #eee;
+    font-size: 25px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: capitalize;
+
+    @media (max-width: 900px) {
+        padding: 20px 70px 20px 50px;
+    }
+
+    @media (max-width: 450px) {
+        width: 100%;
+        padding: 20px 40px 20px 50px;
+        margin: 30px 20px;
+    }
+
+    @media (max-width: 380px) {
+        margin: 30px 15px;
+    }
+
+    &:hover{
+        transition: all .5s ease-in-out;
+        box-shadow: 1px 1px 25px #ddd;
+        cursor: pointer;
+        transform: translateY(1px);
+        //background: linear-gradient(to left,rgba(palette(yellow_1),.4) 10%,white);
+    } 
+}
+
+@mixin statSection {
+    font-size: 17px;
+    font-weight: 600;
+
+    @media (max-width: 1300px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 900px) {
+        font-size: 13px;
+    }
+
+    span {
+        font-size: 35px;
+        font-weight: 100;
+
+        @media (max-width: 1300px) {
+            font-size: 30px;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 28px;
+        }
+    }
+}
+
+@mixin  underlinedTitle($color: palette(yellow_1)) {
+    position: relative;
+    font-weight: 600;
+    width: max-content;
+    letter-spacing: 1px;
+    font-size: 23px;
+    text-transform: capitalize;
+
+    @media (max-width: 1100px) {
+        font-size: 22px;
+    }
+
+    @media (max-width: 900px) {
+        font-size: 19px;
+    }
+
+    @media (max-width: 340px) {
+        font-size: 18px;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        z-index: 1;
+        width: 80%;
+        height: 4px;
+        background:  $color;
+
+        @media (max-width: 1100px) {
+            height: 3px;
+            bottom: -4px;
+        }
+    }
+}

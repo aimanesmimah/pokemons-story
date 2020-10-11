@@ -1,0 +1,8 @@
+$colors: (
+  blue_1: #315FA0,
+  yellow_1: #F0C306
+);
+
+@function palette($name) {
+    @return map-get($colors, $name);
+}

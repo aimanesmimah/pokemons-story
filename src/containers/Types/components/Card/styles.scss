@@ -1,0 +1,19 @@
+@import '../../../../styles/theme.scss';
+@import '../../../../styles/mixins.scss';
+
+.type--card{
+    @include card;
+
+    &__content {
+        div:first-child {
+            @include underlinedTitle(palette(blue_1));
+        }
+
+        &--infos {
+            p{
+                margin-top: 20px;
+                @include statSection;
+            }
+        }
+    }
+}
