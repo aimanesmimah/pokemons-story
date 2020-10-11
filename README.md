@@ -1,10 +1,10 @@
-## Intro 
+<!--## Intro 
 ## Demo
 
 As a demonstration, I created a pokemon store app on top of the boilerplate and that interacting with this pokemons api: 
 https://pokeapi.co/api/v2
 
-Demo link: https://pokemons-store.netlify.app/
+Demo link: https://pokemons-store.netlify.app/-->
 
 <!--## Project structure 
 
@@ -40,6 +40,7 @@ Locally exploring the project can be done once this sequence of commands are exe
 ## Steps forward 
 --->
 
-## Anything's missing
+<!--## Anything's missing
 
 If you got any questions or willing to submit further improvement suggestions to extend this work, you can contact me at: aymansmimah@gmail.com
+-->
