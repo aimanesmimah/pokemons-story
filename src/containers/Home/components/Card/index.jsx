@@ -3,7 +3,7 @@ import AppRoutes from '../../../../constants/app-routes.constants';
 import './styles.scss';
 import { connect } from 'react-redux';
 import { setPokemonId } from '../../../../store/pokemon/actions';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Card extends React.PureComponent {
 
