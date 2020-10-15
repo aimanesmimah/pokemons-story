@@ -1,41 +1,40 @@
 import React from 'react';
-import Paginate from 'react-paginate' ;
+import Paginate from 'react-paginate';
 import { connect } from 'react-redux';
 import './styles.scss';
 import { ResponsivenessConsumer } from '../../contexts/responsiveness';
 
 class Pagination extends React.PureComponent {
-
-    render(){
-        const {total, handlePageChange}= this.props
-        return (
-            <ResponsivenessConsumer>
-                {
+  render() {
+    const { total, handlePageChange } = this.props;
+    return (
+        <ResponsivenessConsumer>
+            {
                     ({ isMobile }) => (
-                        <Paginate 
-                                previousLabel={'Previous'}
-                                nextLabel={'Next'}
-                                pageCount={total} 
-                                onPageChange={handlePageChange}
-                                marginPagesDisplayed={2}
-                                pageRangeDisplayed={isMobile ? 1 : 4}
-                                containerClassName={'pagination'}
-                                subContainerClassName={'pagination--sub'}
-                                pageClassName={'pagination--page'}
+                        <Paginate
                                 activeClassName={'pagination--active'}
-                                previousClassName={'pagination--forward'}
-                                nextClassName={'pagination--forward'}
+                                breakClassName={'pagination--break-me'}
                                 breakLabel={'...'}
-                                breakClassName={'pagination--break-me'} />
+                                containerClassName={'pagination'}
+                                marginPagesDisplayed={2}
+                                nextClassName={'pagination--forward'}
+                                nextLabel={'Next'}
+                                onPageChange={handlePageChange}
+                                pageClassName={'pagination--page'}
+                                pageCount={total}
+                                pageRangeDisplayed={isMobile ? 1 : 4}
+                                previousClassName={'pagination--forward'}
+                                previousLabel={'Previous'}
+                                subContainerClassName={'pagination--sub'} />
                     )
                 }
-            </ResponsivenessConsumer>
-        )
-    }
+        </ResponsivenessConsumer>
+    );
+  }
 }
 
 export default connect(
-    state => ({
-        total: state.pagination.totalPages
-    })
-)(Pagination)
+  state => ({
+    total: state.pagination.totalPages
+  })
+)(Pagination);
