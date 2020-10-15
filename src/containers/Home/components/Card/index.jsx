@@ -6,9 +6,6 @@ import { setPokemonId } from '../../../../store/pokemon/actions';
 import { Redirect, Link } from 'react-router-dom';
 
 class Card extends React.PureComponent {
-    state= {
-      toViewPokemon: false
-    }
 
     handleCardClick= e => {
       const { id, setPokemonId } = this.props;
@@ -20,9 +17,6 @@ class Card extends React.PureComponent {
       const {
         name, height, weight, base_experience, picture, id
       } = this.props;
-      const { toViewPokemon } = this.state;
-
-      if (toViewPokemon) return <Redirect to={AppRoutes.VIEW_POKEMON_ID.replace(':id', id)} />;
 
       return (
           <Link className="pokemon--card" to={AppRoutes.VIEW_POKEMON_ID.replace(':id', id)} >
