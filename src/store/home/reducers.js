@@ -65,11 +65,12 @@ export const FiltersReducer= (prevState= initialState.filters , action ) => {
                 [action.attr] : [...prevState[action.attr], action.id]
             }
         case C.REMOVE_FILTER:
-            console.log('remove',action)
             return {
                 ...prevState,
                 [action.attr]: prevState[action.attr].filter(item => item !== action.id)
             }
+        case C.INIT_FILTERS:
+            return initialState.filters
         default:
             return prevState
     }

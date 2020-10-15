@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.scss';
 import { AppService } from '../../../../services/app.service';
 import { connect } from 'react-redux';
-import { addFilter, removeFilter } from '../../../../store/home/actions';
+import { addFilter, removeFilter, initFilters } from '../../../../store/home/actions';
 import Filters from '../../../../constants/filters.constants' ;
 import loupe from '../../../../assets/loupe.png' ;
 
@@ -49,6 +49,10 @@ class SearchBar extends React.PureComponent {
         this.setState({ options: this._filterOptions })
     }
 
+    componentWillUnmount(){
+        this.props.initFilters()
+    }
+
     getFilterList(){
         return AppService.getTypes()
                         .then(response => Promise.resolve(response.results))
@@ -93,6 +97,9 @@ export default connect(
         },
         removeFilter(attr,selected){
             dispatch(removeFilter(attr,selected))
+        },
+        initFilters(){
+            dispatch(initFilters())
         }
     })
 )(SearchBar);

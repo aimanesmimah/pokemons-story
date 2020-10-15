@@ -40,7 +40,7 @@ export const PokemonReducer = (prevState= intialState.pokemon , action) => {
                 error: action.error
             }
         case C.INIT_POKEMON: 
-            return intialState
+            return intialState.pokemon
         default:
             return prevState
     }

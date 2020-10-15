@@ -34,3 +34,7 @@ export const removeFilter= (attr,id) => ({
     attr,
     id
 })
+
+export const initFilters= () => ({
+    type: C.INIT_FILTERS
+})
