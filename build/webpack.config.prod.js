@@ -85,7 +85,7 @@ const WebpackProdConfig= merge(WebpackCommonConfig,{
         new HtmlWebpackPlugin({
             title: "build template",
             filename: 'index.html',
-            //template: '../index.html',
+            template: '../index.html',
             inject: true
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
