@@ -9,7 +9,6 @@ var fs= require('fs')
 const packageJson= require('./package.json');
 
 
-
 /**
  * @description running tasks labels and tasks configs
 */
@@ -33,6 +32,7 @@ var TASKS= Object.freeze({
 
 var CONFIG= {
     env: 'development',
+    deploymentEnv: 'custom',
     serverPort: 3000,
     siteDir: './_site',
     srcDir: './src',
@@ -48,6 +48,10 @@ var CONFIG= {
         this.env= env
         process.env.NODE_ENV= env
     },
+    setDeploymentEnv: function(env){
+        this.deploymentEnv= env
+        process.env.DEPL_ENV= env
+    },
     incEslintErrors: function(count){
         this.eslintErrors += count
     },
@@ -62,6 +66,9 @@ var CONFIG= {
     },
     siteDirExists: function(){
         return fs.existsSync(this.siteDir)
+    },
+    isNetlifyDeployment: function(){
+        return this.deploymentEnv === 'netlify'
     }
 }
 
@@ -120,6 +127,7 @@ gulp.task(TASKS.LOCAL_DEPLOY,gulp.series(TASKS.DEPLOY_TASKS().concat([TASKS.DEPL
 
 gulp.task(TASKS.BUILD_PROD,function(cb){
     CONFIG.setEnv('production')
+    CONFIG.setDeploymentEnv('netlify')
     require('./build/build-prod')(cb)
 })
 
@@ -148,6 +156,6 @@ gulp.task(TASKS.ESLINT_FIX,function(cb){
 gulp.task('CI',gulp.series([TASKS.ESLINT_FIX,TASKS.BUILD_PROD, TASKS.MAKE_PRETTIER, TASKS.ESLINT_FIX]));
 
 exports.default = function (cb) {
-  console.log('gulp default task');
+  console.log('gulp default task')
   cb();
 };
