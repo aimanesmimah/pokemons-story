@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async' ;
 import { Provider as StoreProvider } from 'react-redux' ;
 import { configureStore } from './store' ;
 import Router from './router';
+import {ResponsivenessProvider} from './contexts/responsiveness'; 
 import './styles/reset.scss';
 //import './index.css';
 
@@ -26,7 +27,9 @@ function renderApp(){
     <React.StrictMode>
       <HelmetProvider context={helmetContext} >
               <StoreProvider store={store} >
-                  <Router />
+                 <ResponsivenessProvider>
+                    <Router />
+                 </ResponsivenessProvider>
               </StoreProvider>
         </HelmetProvider>
     </React.StrictMode>,
