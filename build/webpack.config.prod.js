@@ -4,6 +4,7 @@ const UglifyJsPlugin= require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin= require('html-webpack-plugin')
 const OptimizeCSSPlugin= require('optimize-css-assets-webpack-plugin')
 const  MiniCSSExtactPlugin = require('mini-css-extract-plugin')
+const WorkboxWebpackPlugin= require('workbox-webpack-plugin')
 const WebpackCommonConfig= require('./webpack.config')
 const config= require('./config')
 const helpers= require('./helpers')
@@ -91,6 +92,16 @@ const WebpackProdConfig= merge(WebpackCommonConfig,{
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.MinChunkSizePlugin({
             minChunkSize: 10000
+        }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            clientsClaim: true,
+            exclude: [/\.map$/, /asset-manifest\.json$/],
+            importWorkboxFrom: 'cdn',
+            navigateFallback: config.build.distRoot + '/index.html',
+            navigateFallbackBlacklist: [
+                new RegExp('^/_'),
+                new RegExp('/[^/?]+\\.[^/]+$'),
+            ],
         })
     ]
 })
