@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter, HashRouter, Switch, Route, Redirect
+  HashRouter, Switch, Route, Redirect
 } from 'react-router-dom';
 import AppRoutes from '../constants/app-routes.constants';
 

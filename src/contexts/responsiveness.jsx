@@ -18,12 +18,12 @@ const Context = React.createContext();
 
 export class ResponsivenessProvider extends React.Component {
     state={
-      current_view: getCurrentView()
+      currentView: getCurrentView()
     }
 
     onResize= () => {
       const view = getCurrentView();
-      this.setState({ current_view: view });
+      this.setState({ currentView: view });
     }
 
     componentDidMount() {
@@ -35,14 +35,14 @@ export class ResponsivenessProvider extends React.Component {
     }
 
     render() {
-      const { current_view } = this.state;
+      const { currentView } = this.state;
       return (
           <Context.Provider value={{
-            current_view,
-            isMobile: current_view === 'mobile',
-            isTablet: current_view === 'tablet',
-            isDesktop: current_view === 'desktop',
-            isLaptop: current_view === 'laptop'
+            currentView,
+            isMobile: currentView === 'mobile',
+            isTablet: currentView === 'tablet',
+            isDesktop: currentView === 'desktop',
+            isLaptop: currentView === 'laptop'
           }} >
               {this.props.children}
           </Context.Provider>

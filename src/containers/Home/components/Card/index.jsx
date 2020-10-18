@@ -9,7 +9,7 @@ function Card({  name, height, weight, base_experience, picture, id }) {
         <Link className="pokemon--card" to={AppRoutes.VIEW_POKEMON_ID.replace(':id', id)} >
             <img alt="" className="pokemon--card__logo" src={picture} />
             <div className="pokemon--card__content" >
-                <div>{name}</div>
+                <div>{name.length > 19 ? `${name.slice(0,18)}...` : name }</div>
                 <div className="pokemon--card__content--infos" >
                     <p>Height, <br/><span>{height}</span></p>
                     <p>Weight, <br/><span>{weight}</span></p>

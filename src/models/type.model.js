@@ -3,9 +3,9 @@ export default class TypeClass {
 
     name= ''
 
-    move_damage_class= ''
+    moveDamageClass= ''
 
-    damage_relations= {}
+    damageRelations= {}
 
     constructor(opts) {
       if (opts) Object.assign(this, opts);

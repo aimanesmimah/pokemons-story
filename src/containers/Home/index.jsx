@@ -23,7 +23,6 @@ class HomePage extends React.PureComponent {
     async componentDidMount() {
       const { getPokemons } = this.props;
       await getPokemons(this.props.pagination.currentPage);
-      console.log("pokemons results", this.props.pokemons);
       this.setState({ filteredPokemons: this.props.pokemons.result });
     }
 
@@ -31,6 +30,7 @@ class HomePage extends React.PureComponent {
       const { getPokemons } = this.props;
       await getPokemons(data.selected + 1);
       this.handleFilterChange();
+      window.scrollTo(0,0)
     }
 
     handleFilterChange= () => {
@@ -60,7 +60,9 @@ class HomePage extends React.PureComponent {
                   <div className="pokemons--listing" >
                       {
                             pokemons.loadingStatus === LoadingStatus.LOADING
-                              ? 'loading...' : filteredPokemons.map((pokemonItem, index) => <Card key={index} {...pokemonItem} />) }
+                              ? 'loading...' : 
+                                pokemons.loadingStatus === LoadingStatus.LOADING_FAILED ? 
+                                'error loading item' : filteredPokemons.map((pokemonItem, index) => <Card key={index} {...pokemonItem} />) }
                   </div>
               </div>
               <Pagination handlePageChange={this.handlePageChange} />

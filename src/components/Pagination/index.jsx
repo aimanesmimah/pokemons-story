@@ -6,7 +6,7 @@ import { ResponsivenessConsumer } from '../../contexts/responsiveness';
 
 class Pagination extends React.PureComponent {
   render() {
-    const { total, handlePageChange } = this.props;
+    const {currentPage, total, handlePageChange } = this.props;
     return (
         <ResponsivenessConsumer>
             {
@@ -22,6 +22,7 @@ class Pagination extends React.PureComponent {
                                 onPageChange={handlePageChange}
                                 pageClassName={'pagination--page'}
                                 pageCount={total}
+                                initialPage={currentPage - 1}
                                 pageRangeDisplayed={isMobile ? 1 : 4}
                                 previousClassName={'pagination--forward'}
                                 previousLabel={'Previous'}
@@ -35,6 +36,7 @@ class Pagination extends React.PureComponent {
 
 export default connect(
   state => ({
-    total: state.pagination.totalPages
+    total: state.pagination.totalPages,
+    currentPage: state.pagination.currentPage
   })
 )(Pagination);

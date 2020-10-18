@@ -11,7 +11,7 @@ xmlns="http://www.w3.org/2000/svg">
               </svg>
           </div>
           <div className="footer--content" >
-              <p >© Copyrights 2020</p>
+              <p >&copy; Copyrights 2020</p>
           </div>
       </div>
   );

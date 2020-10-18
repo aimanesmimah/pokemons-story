@@ -7,12 +7,11 @@ const logger = store => next => action => {
   console.log('prev state', store.getState());
   console.log('action', action);
   result = next(action);
+  console.log('result', result)
   console.log('next state', store.getState());
   console.groupEnd();
 };
 
 export const configureStore = () => {
-  // const preloadedState = { pokemons: {} }
-  // const middlewares= [logger]
   return applyMiddleware(logger)(createStore)(reducers);
 };

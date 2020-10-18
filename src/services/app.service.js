@@ -22,7 +22,6 @@ export class AppService {
   }
 
   static getPokemonsByTypes(filterList) {
-    console.log('filter list', filterList);
     return Promise.all(filterList.map(filter => AppService.get(Uris.TYPES_ID.replace(':id', filter))))
       .then(responses => Promise.resolve(responses.reduce((accumulator, current) => [...accumulator, ...current.pokemon], [])))
       .catch(err => Promise.reject(err));

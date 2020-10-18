@@ -12,7 +12,6 @@ class PokemonTypes extends React.PureComponent {
   async componentDidMount() {
     const { getTypes, types } = this.props;
     await getTypes(types.length);
-    console.log('resuss', this.props.types);
   }
 
   render() {
@@ -41,20 +40,18 @@ export default connect(
       dispatch(setTypesLoading());
       return AppService.getTypes()
         .then(response=>{
-          console.log('then response=', response);
           const TypesRequets = response.results
             .filter(item=> !!item.url)
             .map(type => AppService.getByUrl(type.url));
           Promise.all(TypesRequets)
             .then(responses=>{
-              console.log('types reponses', responses);
               dispatch(setTypes(
                 responses.filter(response => !!response)
                   .map(response=> ({
                     id: response.id,
                     name: response.name,
-                    move_damage_class: response.move_damage_class && response.move_damage_class.name,
-                    damage_relations: response.damage_relations
+                    moveDamageClass: response.moveDamageClass && response.moveDamageClass.name,
+                    damageRelations: response.damageRelations
                   }))
               ));
             })

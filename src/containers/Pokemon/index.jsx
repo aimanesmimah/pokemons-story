@@ -22,6 +22,32 @@ class PokemonPage extends React.PureComponent {
     initPokemonLoading();
   }
 
+  renderPokemonFigure(){
+    const { pokemon }= this.props
+    const pokemonFigCaption = (
+                  <figcaption>
+                      <div>{pokemon.name}</div>
+                      <p className="specy--name" >specy, <span>{ pokemon.species && pokemon.species.name}</span></p>
+                  </figcaption>
+                )
+    
+    if(pokemon.sprites && pokemon.sprites.back_default){
+      const officialArtWork= 'official-artwork' 
+      const { back_default, other: { [officialArtWork]: { front_default } } }= pokemon.sprites
+      return  (
+        <figure>
+          <img alt="" className="front--logo" src={front_default} />
+          <img alt="" className="back--logo" src={back_default}  />
+          {pokemonFigCaption}
+        </figure>
+      )
+    }
+
+    return (
+      <figure>{pokemonFigCaption}</figure>
+    )
+  }
+
   render() {
     const { pokemon, loading, error } = this.props;
     return (
@@ -33,16 +59,7 @@ class PokemonPage extends React.PureComponent {
                         : <div className="pokemon--props" >
                             <div className="pokemon--props__main" >
                                 <section >
-                                    <figure>
-                                        { pokemon.sprites
-                                                        && <img alt=""
-                                                            className="front--logo" src={pokemon.sprites.other['official-artwork'].front_default} /> }
-                                        { pokemon.sprites && <img alt="" className="back--logo" src={pokemon.sprites.back_default}/> }
-                                        <figcaption>
-                                            <div>{pokemon.name}</div>
-                                            <p className="specy--name" >specy, <span>{ pokemon.species && pokemon.species.name}</span></p>
-                                        </figcaption>
-                                    </figure>
+                                    {this.renderPokemonFigure()}
                                     <div className="pokemon--details" >
                                         <p>Height, <br/><span>{pokemon.height}</span></p>
                                         <p>Weight, <br/><span>{pokemon.weight}</span></p>
